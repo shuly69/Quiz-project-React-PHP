@@ -1,38 +1,88 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  background-image: url('assets/img/background.webp');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  border: 1px solid darkorchid;
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  border-radius: 17px;
+  height: 200px;
+  color: #fff;
+}
+
+.card__items {
+  border: 1px solid darkmagenta;
+  border-radius: 7px;
+  list-style: none;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.card__title {
+  font-size: 20px;
+}
+
+.card__progress {
+  height: 8px;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.card__progress--result {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(119, 253, 45, 1) 100%
+  );
+  border-radius: 5px;
+  transition: 0.5s linear;
+}
+
+.result__title {
+  font-size: 24px;
+  color: yellow;
+}
+
+.result__text {
+  font-size: 20px;
+}
+
+.result__button {
+  padding: 5px 16px;
+  color: #fff;
+  background-color: darkgreen;
+  border-radius: 10px;
+  border: none;
 }

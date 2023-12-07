@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import QuizList from './components/quiz-list';
 
 function App() {
+  const [step, setStep] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [result, setResult] = useState(false);
+  const [dataItem, setDataItem] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost/react-php/backend/get-api-quiz')
+      .then((response) => response.json())
+      .then((json) => setDataItem(json));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <QuizList
+        dataItem={dataItem}
+        currentStep={step}
+        nextStep={setStep}
+        progress={progress}
+        setProgress={setProgress}
+        result={result}
+        setResult={setResult}
+      />
     </div>
   );
 }
